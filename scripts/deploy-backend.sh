@@ -11,7 +11,6 @@ docker build -t "$ECR_REGISTRY/$ECR_REPOSITORY:$branch_name-latest" .
 
 docker push "$ECR_REGISTRY/$ECR_REPOSITORY:$branch_name-latest"
 
-
 aws ssm send-command \
     --document-name "AWS-RunShellScript" \
     --targets "[{\"Key\":\"InstanceIds\",\"Values\":[\"$EC2_INSTANCE_ID\"]}]" \
