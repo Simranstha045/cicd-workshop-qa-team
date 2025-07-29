@@ -3,7 +3,7 @@ on:
   # push:
   #   branches: [ team5-simran ]
   pull_request:
-    branches: [ team5-simran ]
+    branches: [ main ]
 
 
 jobs:
