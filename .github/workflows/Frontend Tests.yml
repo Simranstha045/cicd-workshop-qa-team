@@ -1,7 +1,9 @@
 name: Frontend Tests
 on:
-  push:
-    branches: [ teamN-name ]
+  # push:
+  #   branches: [ team5-simran ]
+  pull_request:
+    branches: [ team5-simran ]
 
 
 jobs:
