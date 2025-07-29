@@ -1,8 +1,8 @@
 name: Frontend Tests
+
 on:
   push:
     branches: [ team5-simran ]
-
 
 jobs:
   test:
@@ -10,9 +10,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v4.0.1
       with:
         node-version: '20'
         cache: 'npm'
@@ -21,6 +21,7 @@ jobs:
       working-directory: ./frontend
       run: npm install
     
+    # Optional: Uncomment if needed
     # - name: Run unit tests
     #   working-directory: ./frontend
     #   run: npm run test:unit
