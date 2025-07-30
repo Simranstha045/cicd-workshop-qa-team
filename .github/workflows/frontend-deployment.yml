@@ -39,6 +39,12 @@ jobs:
             --distribution-id E18DFJRSCMJ71F \
             --paths "/*"
 
+      - name: Build application
+        working-directory: ./frontend
+        run: npm run build
+        env:
+          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }} 
+
       - name: Install Cypress Dependencies & Run Tests
         working-directory: ./e2e-tests
         run: |
@@ -48,7 +54,7 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
           CYPRESS_BASE_URL: ${{ secrets.CYPRESS_BASE_URL }}
-          CYPRESS_API_URL: ${{ secrets.REACT_APP_API_URL }}
+          # CYPRESS_API_URL: ${{ secrets.REACT_APP_API_URL }}
 
       - name: Notify Slack
         if: always()
